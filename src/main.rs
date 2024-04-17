@@ -11,7 +11,18 @@ fn main() {
 }
 
 // Add the game's entities to our world
-fn setup(mut commands: Commands) {
+fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     // Camera
     commands.spawn(Camera2dBundle::default());
+
+    // sprite
+    commands.spawn(SpriteBundle {
+        texture: asset_server.load("hero/down1.png"),
+        transform: Transform {
+            translation: Vec3::new(-16.0, 0.0, 0.0),
+            scale: Vec3::splat(2.0),
+            ..default()
+        },
+        ..default()
+    });
 }
