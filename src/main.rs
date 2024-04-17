@@ -15,6 +15,16 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     // Camera
     commands.spawn(Camera2dBundle::default());
 
+    // map
+    commands.spawn(SpriteBundle {
+        texture: asset_server.load("aliahan_town_house.png"),
+        transform: Transform {
+            scale: Vec3::splat(2.0),
+            ..default()
+        },
+        ..default()
+    });
+
     // sprite
     commands.spawn(SpriteBundle {
         texture: asset_server.load("hero/down1.png"),
